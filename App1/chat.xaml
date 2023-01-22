@@ -18,7 +18,7 @@
         </ComboBox>
 
         
-        <Button x:Name="addUser" Content="Add" Click="addUserButton_Click" Margin="5"/>
+        <Button x:Name="addUserButton" Content="Add" Click="addUserButton_Click" Margin="5"/>
         <StackPanel Orientation="Vertical" Name="chatList" Margin="5">
                 <!-- Chat messages will be added here dynamically -->
             <RichTextBlock x:Name="chatMessages" Width="500" Margin="5" HorizontalAlignment="Left" Height="300"></RichTextBlock>

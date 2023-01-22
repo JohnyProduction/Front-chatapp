@@ -36,5 +36,14 @@ namespace App1
             }
             
         }
+        private void addUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            addUserButton.Content = "Clicked";
+            if (true)
+            {
+
+            }
+
+        }
     }
 }
