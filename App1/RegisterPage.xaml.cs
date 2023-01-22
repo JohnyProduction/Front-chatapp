@@ -1,4 +1,7 @@
-﻿using Microsoft.UI.Xaml;
+// Copyright (c) Microsoft Corporation and Contributors.
+// Licensed under the MIT License.
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -13,29 +16,21 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
-
-
 namespace App1
 {
-
-    public sealed partial class login : Window
+    public sealed partial class RegisterPage : Page
     {
-        public login()
+        public RegisterPage()
         {
             this.InitializeComponent();
-
         }
-
-        private void loginButton_Click(object sender, RoutedEventArgs e)
+        private void registerButton_Click(object sender, RoutedEventArgs e)
         {
-            loginButton.Content = "Clicked";
+            registerButton.Content = "Clicked";
             if (true)
             {
 
             }
-            //Window.Navigate(typeof(chat));
         }
-        
     }
 }
-    
