@@ -21,9 +21,9 @@ namespace App1
     /// <summary>
     /// An empty window that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class chat : Window
+    public sealed partial class ChatPage : Page
     {
-        public chat()
+        public ChatPage()
         {
             this.InitializeComponent();
         }

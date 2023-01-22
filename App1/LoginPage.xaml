@@ -14,14 +14,14 @@
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Username: "/>
-            <TextBox x:Name="usernameTextBox" Width="100"/>
+            <TextBox x:Name="usernameTextBox" Width="200" Margin="5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Password: "/>
-            <PasswordBox x:Name="passwordBox" Width="100"/>
+            <PasswordBox x:Name="passwordBox" Width="200" Margin="5"/>
         </StackPanel>
-        <Button x:Name="loginButton" Content="Login" Click="loginButton_Click"/>
-        <Button x:Name="registerButton" Content="Register" Click="registerButton_Click"/>
+        <Button x:Name="loginButton" Content="Login" Click="loginButton_Click" Margin="5"/>
+        <Button x:Name="registerButton" Content="Register" Click="registerButton_Click" Margin="5"/>
 
     </StackPanel>
 </Page>

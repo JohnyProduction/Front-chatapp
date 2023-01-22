@@ -31,6 +31,7 @@ namespace App1
             {
 
             }
+            this.Frame.Navigate(typeof(LoginPage));
         }
     }
 }

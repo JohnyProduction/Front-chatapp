@@ -14,16 +14,16 @@
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Username: "/>
-            <TextBox x:Name="reusernameTextBox" Width="100"/>
+            <TextBox x:Name="reusernameTextBox" Width="200" Margin="5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Password: "/>
-            <PasswordBox x:Name="regpasswordBox" Width="100"/>
+            <PasswordBox x:Name="regpasswordBox" Width="200" Margin="5"/>
 
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Re-type pass: "/>
-            <PasswordBox x:Name="reregpasswordBox" Width="100"/>
+            <PasswordBox x:Name="reregpasswordBox" Width="200" Margin="5"/>
         </StackPanel>
         <Button x:Name="registerButton" Content="Register" Click="registerButton_Click"/>
     </StackPanel>

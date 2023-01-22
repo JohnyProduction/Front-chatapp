@@ -33,7 +33,7 @@ namespace App1
             {
 
             }
-            //Window.Navigate(typeof(chat));
+            this.Frame.Navigate(typeof(ChatPage));
         }
 
         private void registerButton_Click(object sender, RoutedEventArgs e)
