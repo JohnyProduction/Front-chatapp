@@ -15,25 +15,53 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-
-
+using System.Net.Http;
+using System.Text.Json;
+using System.Text.Encodings;
+using Windows.UI.Popups;
 namespace App1
 {
+    public class UserLogin
+    {
+        public string username { get; set; }
+        public string password { get; set; }
+    }
     public sealed partial class LoginPage : Page
     {
         public LoginPage()
         {
             this.InitializeComponent();
         }
+        private static readonly HttpClient client = new HttpClient();
 
-        private void loginButton_Click(object sender, RoutedEventArgs e)
+        async void checkLogin()
         {
-            loginButton.Content = "Clicked";
-            if (true)
+            try
             {
+                var loginUser = new UserLogin
+                {
+                    username = usernameTextBox.Text.ToString(),
+                    password = passwordBox.Password.ToString()
+                };
+                string jsonString = JsonSerializer.Serialize(loginUser);
+                var content = new StringContent(jsonString, encoding:System.Text.Encoding.UTF8, "application/json");
+             
+
+                var response = await client.PostAsync("http://134.122.51.174:8888/user/login",content);
+                
+                var responseString = await response.Content.ReadAsStringAsync();
+                
+                this.Frame.Navigate(typeof(ChatPage));
 
             }
-            this.Frame.Navigate(typeof(ChatPage));
+            catch (Exception ex)
+            {
+                errorTextBlock.Text = ex.ToString();
+            }
+        }
+        private void loginButton_Click(object sender, RoutedEventArgs e)
+        {
+            checkLogin();
         }
 
         private void registerButton_Click(object sender, RoutedEventArgs e)

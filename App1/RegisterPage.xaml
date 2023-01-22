@@ -14,7 +14,7 @@
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Username: "/>
-            <TextBox x:Name="reusernameTextBox" Width="200" Margin="5"/>
+            <TextBox x:Name="regusernameTextBox" Width="200" Margin="5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Password: "/>
@@ -26,5 +26,6 @@
             <PasswordBox x:Name="reregpasswordBox" Width="200" Margin="5"/>
         </StackPanel>
         <Button x:Name="registerButton" Content="Register" Click="registerButton_Click"/>
+        <TextBlock x:Name="errorTextBlock"  Text=" " VerticalAlignment="Bottom" Margin="5"/>
     </StackPanel>
 </Page>

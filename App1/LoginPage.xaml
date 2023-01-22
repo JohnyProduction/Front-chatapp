@@ -22,6 +22,6 @@
         </StackPanel>
         <Button x:Name="loginButton" Content="Login" Click="loginButton_Click" Margin="5"/>
         <Button x:Name="registerButton" Content="Register" Click="registerButton_Click" Margin="5"/>
-
+        <TextBlock x:Name="errorTextBlock"  Text=" " VerticalAlignment="Bottom" Margin="5"/>
     </StackPanel>
 </Page>
