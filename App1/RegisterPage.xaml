@@ -11,7 +11,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+    <StackPanel x:Name="registerPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Username: "/>
             <TextBox x:Name="regusernameTextBox" Width="200" Margin="5"/>

@@ -34,6 +34,18 @@ namespace App1
         }
         private static readonly HttpClient client = new HttpClient();
 
+        async void fields()
+        {
+            ContentDialog fieldDialog = new ContentDialog
+            {
+                Title = "Some fields are empty",
+                Content = "Fill in all fields",
+                CloseButtonText = "Ok"
+            };
+            fieldDialog.XamlRoot = loginPanel.XamlRoot;
+
+            ContentDialogResult result = await fieldDialog.ShowAsync();
+        }
         async void checkLogin()
         {
             try
@@ -61,7 +73,18 @@ namespace App1
         }
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            checkLogin();
+            if (string.IsNullOrEmpty(usernameTextBox.Text))
+            {
+                fields();
+            }
+            else if (string.IsNullOrEmpty(passwordBox.Password))
+            {
+                fields();
+            }
+            else
+            {
+                checkLogin();
+            }
         }
 
         private void registerButton_Click(object sender, RoutedEventArgs e)

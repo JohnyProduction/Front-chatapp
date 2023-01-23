@@ -37,8 +37,19 @@ namespace App1
         {
             this.InitializeComponent();
         }
+        async void fields()
+        {
+            ContentDialog fieldDialog = new ContentDialog
+            {
+                Title = "Some fields are empty",
+                Content = "Fill in all fields",
+                CloseButtonText = "Ok"
+            };
+            fieldDialog.XamlRoot = registerPanel.XamlRoot;
 
-        async void checkRegister()
+            ContentDialogResult result = await fieldDialog.ShowAsync();
+        }
+            async void checkRegister()
         {
             try
             {
@@ -59,12 +70,29 @@ namespace App1
             }
             catch(Exception ex)
             {
+                
                 errorTextBlock.Text = ex.ToString();
             }
         }
         private void registerButton_Click(object sender, RoutedEventArgs e)
         {
-            checkRegister();
+            
+            if (string.IsNullOrEmpty(regusernameTextBox.Text))
+            {
+                fields();
+            }
+            else if (string.IsNullOrEmpty(regpasswordBox.Password))
+            {
+                fields();
+            }
+            else if (string.IsNullOrEmpty(reregpasswordBox.Password))
+            {
+                fields();
+            }
+            else
+            {
+                checkRegister();
+            }
             
         }
     }
