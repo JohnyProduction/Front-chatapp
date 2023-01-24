@@ -21,7 +21,11 @@
         </StackPanel>
         <StackPanel Orientation="Vertical" Name="chatList" Margin="5">
                 <!-- Chat messages will be added here dynamically -->
-            <ListBox Name="messagesList" Height="300" Width="500"/>
+            <ScrollViewer>
+                <ListBox Name="messagesList" Height="300" Width="500" >
+
+                </ListBox>
+            </ScrollViewer>
         </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBox Name="txtMessage" Width="300" Margin="5" />
