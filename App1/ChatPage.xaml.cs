@@ -90,7 +90,7 @@ namespace App1
                     Debug.WriteLine(response.StatusCode);
                 }
 
-                
+                txtMessage.Text = null;
                 
                 
             }
