@@ -62,9 +62,16 @@ namespace App1
                 var response = await client.PostAsync("http://134.122.51.174:8888/user/login",content);
                 
                 var responseString = await response.Content.ReadAsStringAsync();
-                
-                this.Frame.Navigate(typeof(ChatPage));
 
+                if(response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    errorTextBlock.Text = responseString;
+                }
+                else
+                {
+                    Jwt.token = responseString;
+                    this.Frame.Navigate(typeof(ChatPage));
+                }
             }
             catch (Exception ex)
             {

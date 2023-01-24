@@ -22,14 +22,18 @@ using Windows.Foundation.Collections;
 namespace App1
 {
     /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
+    /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class RootWindow : Window
+    public sealed partial class AddUserPage : Page
     {
-        public RootWindow()
+        public AddUserPage()
         {
             this.InitializeComponent();
-            rootFrame.Navigate(typeof(LoginPage));
+        }
+
+        private void UserNameTexbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ChatPage.UserToAdd.username = UserNameTexbox.Text;
         }
     }
 }
