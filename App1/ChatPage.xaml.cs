@@ -149,6 +149,7 @@ namespace App1
 
                     }
                 }
+            }
          }
         async Task getMessagesTask()
         {
