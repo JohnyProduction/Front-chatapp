@@ -20,7 +20,6 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Media.Protection.PlayReady;
-
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
@@ -73,12 +72,14 @@ namespace App1
 
         private async void sendButton_Click(object sender, RoutedEventArgs e)
         {
+            
             if(txtMessage.Text != "" )
             {
                 var reqCls = new MessageToSend
                 {
                     conversation_id = conversations[UsersComboBox.SelectedItem.ToString()],
                     message = txtMessage.Text
+                    
                 };
                 string jsonString = JsonSerializer.Serialize(reqCls);
                 var content = new StringContent(jsonString, encoding: System.Text.Encoding.UTF8, "application/json");
@@ -88,6 +89,10 @@ namespace App1
                 {
                     Debug.WriteLine(response.StatusCode);
                 }
+
+                
+                
+                
             }
         }
         private async void addUserButton_Click(object sender, RoutedEventArgs e)
@@ -140,6 +145,7 @@ namespace App1
                         }
                     }
                 }
+                
         }
         async Task getMessagesTask()
         {
@@ -157,6 +163,7 @@ namespace App1
             Debug.WriteLine("dupa");
             foreach (KeyValuePair<string,string> conversation in conversations)
             {
+                
                 var response = await client.GetAsync("http://134.122.51.174:8888/conversations/" + conversation.Value);
                 var responseString = await response.Content.ReadAsStringAsync();
                 Debug.WriteLine(responseString);
@@ -172,7 +179,14 @@ namespace App1
                         Debug.WriteLine($"{messageResp.sender}: {messageResp.message}");
                         messages[conversation.Key].Add($"{messageResp.sender}: {messageResp.message}");
                         Debug.WriteLine(messageResp.message);
+                        
+                        
+
                     }
+                    messagesList.ItemsSource = null;
+                    messagesList.ItemsSource = messages[selectedUser];
+                    
+
                 } catch { continue; }
             }
             
@@ -186,7 +200,12 @@ namespace App1
                 string selected = UsersComboBox.SelectedValue.ToString();
                 Debug.WriteLine(selected.ToString());
                 messagesList.ItemsSource = messages[selected];
+                selectedUser = UsersComboBox.SelectedValue.ToString();
+                
             }
         }
+        
+
+       
     }
 }
