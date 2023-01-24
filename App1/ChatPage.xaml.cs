@@ -123,23 +123,28 @@ namespace App1
 
         async void GetConversations()
         {
-
             var response = await client.GetAsync("http://134.122.51.174:8888/conversations/get");
+            if (response.IsSuccessStatusCode == true)
+            {
                 var responseString = await response.Content.ReadAsStringAsync();
-
                 var conversations_list = JsonSerializer.Deserialize<List<Conversation>>(responseString);
-                if (conversations_list.Count != UsersComboBox.Items.Count())
+                if (conversations_list != null)
                 {
-                    foreach (Conversation conversation in conversations_list)
+                    if (conversations_list.Count != UsersComboBox.Items.Count())
                     {
-                        if (!conversations.ContainsKey(conversation.username))
+                        foreach (Conversation conversation in conversations_list)
                         {
-                            conversations[conversation.username] = conversation.id;
-                            messages[conversation.username] = new List<string>();
-                            UsersComboBox.Items.Add(conversation.username);
+                            if (!conversations.ContainsKey(conversation.username))
+                            {
+                                conversations[conversation.username] = conversation.id;
+                                messages[conversation.username] = new List<string>();
+                                UsersComboBox.Items.Add(conversation.username);
+                            }
                         }
+
                     }
                 }
+            }
         }
         async Task getMessagesTask()
         {
@@ -154,7 +159,6 @@ namespace App1
 
         async void getMessages()
         {
-            Debug.WriteLine("dupa");
             foreach (KeyValuePair<string,string> conversation in conversations)
             {
                 var response = await client.GetAsync("http://134.122.51.174:8888/conversations/" + conversation.Value);
